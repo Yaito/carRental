@@ -1,0 +1,41 @@
+.outer-container {
+    border-radius: 5px;
+    border: 1px solid #b6b6b6;
+    padding: 10px;
+    height: auto;
+    width: 500px;
+    margin: 8% auto auto auto;
+    position: relative;
+    background-color:white;
+}
+
+.container {
+    margin: 0;
+    padding: 0px 15px 0px 15px;
+}
+
+.action-buttons {
+    margin: auto;
+    text-align: center;
+}
+
+
+.title {
+    font-size: 26px;
+    margin-bottom: 5px;
+
+}
+
+.input-btn {
+    text-align: center;
+}
+
+.btn {
+    margin: 10px;
+}
+
+.form-group {
+    box-sizing: border-box;
+    padding: 5px 0px 5px 0px;
+    margin-bottom: 10px;
+}

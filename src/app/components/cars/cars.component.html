@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <ng-container *ngFor='let car of cars$ | async'>
+    <div class="available" *ngIf='!car.value.rented == true'>
+
+      <div class="card-deck">
+        <div class="card" style="width: 25rem;">
+          <img src="{{car.value.images}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ car.value.brand }} {{ car.value.model }}</h5>
+            <p class="card-text">Car ID: {{ car.value.id }}</p>
+            <button type="button" class="btn btn-success" (click)="rent(car)">Alquilar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+</div>

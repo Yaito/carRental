@@ -1,0 +1,62 @@
+<div class="modal-header">
+  <h4 class="modal-title"><i class="fas fa-user-plus"></i> Formulario de Alquiler</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="fluid-container">
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group name">
+      <label for="name">Nombre</label>
+      <input type="text" formControlName="name" class="form-control" placeholder="Nombre Completo"
+        [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">Nombre es requerido.</div>
+      </div>
+    </div>
+
+    <div class="form-group personal-id">
+        <label for="personal_ID">NIP</label>
+        <input type="text" formControlName="personal_ID" class="form-control" placeholder="Número de Identidad Personal"
+          [ngClass]="{ 'is-invalid': submitted && f.personal_ID.errors }">
+        <div *ngIf="submitted && f.personal_ID.errors" class="invalid-feedback">
+          <div *ngIf="f.personal_ID.errors.required">NIP es requerido.</div>
+        </div>
+      </div>
+
+    <div class="form-group user-id">
+        <label for="id">Usuario</label>
+        <input type="text" formControlName="id" class="form-control" placeholder="Usuario"
+          [ngClass]="{ 'is-invalid': submitted && f.id.errors }">
+        <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+          <div *ngIf="f.id.errors.required">UID es requerido.</div>
+        </div>
+      </div>
+
+    <div class="form-group day">
+        <label for="day">Días</label>
+        <input (change)="setPrice(this.cars$.value.price)" type="number" min="1" oninput="validity.valid||(value='');" formControlName="day" class="form-control" placeholder="Número de días a alquilar"
+          [ngClass]="{ 'is-invalid': submitted && f.day.errors }">
+        <div *ngIf="submitted && f.day.errors" class="invalid-feedback">
+          <div *ngIf="f.day.errors.required">Días es requerido.</div>
+        </div>
+      </div>
+
+    <div class="form-group price">
+        <label for="price">Precio</label>
+        <input type="currency" formControlName="price" class="form-control" placeholder="Costo Total"
+          [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+        <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+          <div *ngIf="f.price.errors.required">Precio es requerido.</div>
+        </div>
+      </div>
+
+    <!-- <button type="submit" class="btn btn-primary btn-register">Registrar</button> -->
+    <div class="form-group modal-footer">
+      <button class="btn btn-primary btn-rent">Alquilar</button>
+      <a routerLink="/home" class="btn btn-link" (click)="activeModal.close('Close click')">Cancelar</a>
+    </div>
+
+  </form>
+</div>

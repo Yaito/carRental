@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/home"><i class="fas fa-car-side"></i> Car Rental</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/home"><i class="fas fa-home"></i> Inicio</a>
+      <li *ngIf="!user">
+        <a class="nav-item nav-link" routerLink="/login"><i class="fas fa-sign-in-alt"></i> Acceder</a>
+      </li>
+      <li *ngIf="!user">
+        <a class="nav-item nav-link" routerLink="/register"><i class="fas fa-user-plus"></i> Registrar</a>
+      </li>
+      <li *ngIf="user">
+        <a class="nav-item nav-link" routerLink="/account"><i class="fas fa-user"></i> Perfil</a>
+      </li>
+      <li *ngIf="user">
+        <a class="nav-item nav-link" (click)="logout()"><i class="fas fa-door-open"></i> Salir</a>
+      </li>
+    </div>
+  </div>
+</nav>

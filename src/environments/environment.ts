@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyBErG1-2ElfHW5ZNvGwMbN5sKb39ouRX7g",
+    authDomain: "carrentalfb-demo.firebaseapp.com",
+    databaseURL: "https://carrentalfb-demo.firebaseio.com",
+    projectId: "carrentalfb-demo",
+    storageBucket: "",
+    messagingSenderId: "836713842036",
+    appId: "1:836713842036:web:cdb3b19e0ab700b4"
+  }
 };
 
 /*
