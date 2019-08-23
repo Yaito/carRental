@@ -17,7 +17,6 @@ export class OrdersHistoryComponent implements OnInit {
 
   constructor(
     private db: AngularFireDatabase,
-    private authService: AuthService,
     private afAuth: AngularFireAuth
   ) {
     // db.list('/orders').valueChanges()
