@@ -1,3 +1,34 @@
-<p>
-  orders-history works!
-</p>
+<!-- <ul>
+  <li *ngFor="let order of orders$ | async">
+    {{ order | json}}
+    {{ order.user_name }}
+  </li>
+</ul> -->
+<h2>Historial de Alquiler</h2>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID de Orden</th>
+      <th scope="col">ID de Vehículo</th>
+      <th scope="col">Días</th>
+      <th scope="col">Costo Total</th>
+      <th scope="col">Titular de Alquiler</th>
+      <th scope="col">PID del Titular</th>
+      <th scope="col">Estado de Renta</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders$ | async">
+      <th class="justify-content-center orderId" scope="row">{{ order.key }}</th>
+      <td class="justify-content-center carId"> {{ order.value.car_id }}</td>
+      <td class="justify-content-center day">{{ order.value.day }}</td>
+      <td class="justify-content-center price">{{ order.value.price | currency }}</td>
+      <td class="justify-content-center userName">{{ order.value.user_name }}</td>
+      <td class="justify-content-center pId">{{ order.value.user_pid }}</td>
+      <td class="justify-content-center status" *ngIf="!order.value.rent_status; else returnCar">Devuelto</td>
+      <ng-template #returnCar>
+          <td class="justify-content-center button" align="center"><button type="button" class="btn btn-warning" (click)="update(order)">Devolver</button></td>
+      </ng-template>
+    </tr>
+    </tbody>
+  </table>
